@@ -1,0 +1,428 @@
+@import url('https://fonts.googleapis.com/css2?family=Michroma&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Sixtyfour+Convergence&display=swap');
+
+:root{
+    --primary: rgb(132, 179, 209);
+    --secondary: rgb(204, 0, 0);
+    --borderBox: rgb(255, 55, 49, 0.4);
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Michroma", sans-serif;
+}
+
+body{
+    background-image: url("../img/abstract-background-with-low-poly-design.jpg");
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#backHome{
+    background-image: url("../img/pexels-ron-lach-9783353.jpg");
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+section{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+}
+
+header{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    padding: 40px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .logo{
+    color: white;
+    font-size: 1.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+    background: rgb(26, 48, 71);
+    border-radius: 5px;
+    padding: 0 5px;
+    font-family: "Sixtyfour Convergence", sans-serif;
+    font-weight: 600;
+}
+
+header .logo:hover{
+    background-color: rgb(132, 179, 209);
+    transition: 1s;
+}
+
+header .navbar{
+    position: relative;
+    display: flex;
+}
+
+header .navbar li{
+    list-style: none;
+    margin-left: 30px;
+}
+
+header .navbar li a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    padding: 10px;
+    transition: 0.3s;
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+
+header .navbar li a:hover{
+    border-bottom: 5px solid var(--primary);
+    border-top: 5px solid var(--primary);
+    border-radius: 5px;
+    padding: 2px;
+}
+
+/*Estilización del contenido del Landing page.*/
+.contenido {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 30px;
+}
+.contenido .tituloBox{
+    position: relative;
+    right: 600px;
+    max-width: 600px;
+    text-align: center;
+}
+.contenido .tituloBox h2{
+    font-size: 3.5em;
+    text-transform: uppercase;
+    color: white;
+
+}
+
+.contenido .tituloBox h2 span{
+    background: var(--primary);
+    color: white;
+    padding: 0 10px;
+    font-family: "Red Hat Text", sans-serif;
+    font-weight: 400px;
+    border-radius: 20px;
+}
+
+.contenido .tituloBox a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--primary);
+    background: #fff;
+    border-radius: 20px;
+    letter-spacing: 2px;
+    transition: 0.5s;
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+}
+
+/*Copyright*/
+.copyright {
+    position: absolute;
+    bottom: 0px;
+    left: 700px;
+    margin-bottom: 20px;
+    padding: 0 100pX 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.copyright p{
+    color: #fff;
+    text-align: center;
+    margin-left: 80px;
+}
+
+/*Redes Sociales*/
+.redesSociales{
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 100px 30px;
+    list-style: none;
+}
+
+.redesSociales li{
+    padding: 10px;
+}
+
+.redesSociales li a{
+    color: #fff;
+    font-size: 2.5em;
+    transition: 0.3s;
+}
+.redesSociales li:hover a{
+    color: var(--secondary);
+    transition: 0.5s;
+}
+
+/*Contenido de la página "Quién soy"*/
+.contenido .textoSobre{
+    border: 5px solid var(--borderBox);
+    background-color: var(--borderBox);
+    border-radius: 10px;
+    padding: 10px;
+}
+.contenido .textoSobre h6{
+    font-family: "Michroma", sans-serif;
+    margin-right: 1650px;
+    margin-bottom: 15px;
+    text-align: left;
+    border-bottom: 5px solid red;
+    color: #fff;
+    font-size: 30px;
+}
+.contenido .textoSobre p{
+    font-family: "Red Hat Text", sans-serif;
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.contenido .textoSobre ul li{
+    font-family: "Red Hat Text", sans-serif;
+    color: #fff;
+    font-size: 20px;
+    margin-left: 100px;
+}
+
+.bookButton{
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.contenido .textoSobre a{
+    font-family: "Red Hat Text", sans-serif;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #fff;
+    border-radius: 20px;
+    background-color: var(--primary);
+    text-decoration: none;
+    transition: 0.5s;
+    padding: 10px 20px;
+}
+
+.contenido .textoSobre a:hover{
+    color: var(--primary);
+    background-color: #fff;
+    transition: 0.5s;
+}
+
+.section #copyQs{
+    position: relative;
+    bottom: -100px;
+}
+
+.section #redSocQs{
+    position: relative;
+    bottom: -100px;
+}
+
+/*Contenido y estilo de la página "Proyectos Destacados"*/
+
+/*Contenido y estilo de la página "CV"*/
+.cvContainer{
+    border: 8px solid rgb(148, 148, 184);
+    background-color: #fff;
+    position: relative;
+    margin-right: 95px;
+    margin-top: 50px;
+    max-width: 3000px;
+    text-align: justify;
+    padding: 20px;
+}
+
+.headerCv{
+    display: inline;
+}
+
+.headerCv h2{
+    font-family: "Red Hat Text", sans-serif;
+    font-size: 30px;
+    margin-left: 30px;
+}
+
+.info h3{
+    font-family: "Red Hat Text", sans-serif;
+    font-size: 20px;
+    text-decoration: underline;
+    text-decoration-color: black;
+    margin-left: 15px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.imgContainer{
+    
+    position: relative;
+    margin-bottom: 20px;
+    margin-right: 150px;
+    padding-right: 5px;
+}
+
+.imgContainer img{
+    display: block;
+    margin-right: 10px;
+    margin-left: auto;
+    width: 15vw;
+    height: 30vh;
+}
+
+.info ul li{
+    font-family: "Red Hat Text", sans-serif;
+    font-weight: 900;
+    font-size: 25px;
+    margin-left: 30px;
+    text-decoration: underline;
+    text-decoration-color: black;
+    list-style-type: none;
+}
+
+.info p{
+    font-family: "Red Hat Text", sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+    margin-left: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-decoration: none;
+}
+
+.info dl dt{
+    font-family: "Red Hat Text", sans-serif;
+    font-weight: 900;
+    font-size: 25px;
+    margin-left: 30px;
+    text-decoration: underline;
+    text-decoration-color: black;
+}
+
+.info dl dd{
+    font-family: "Red Hat Text", sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    margin-left: 30px;
+}
+
+
+/*Contenido y estilo de la página "Contacto"*/
+.formulario{
+    display:block;
+    margin-top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+}
+
+.contHeader{
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-left: auto;
+}
+
+form{
+    margin: auto;
+    border: 13px outset var(--borderBox);
+    border-radius: 25px 25px 25px 25px;
+    background-color: var(--borderBox);
+    color: #fff;
+    font-family: "Red Hat Text", sans-serif;
+}
+
+.campo{
+    display: block;
+    text-align: left;
+    margin-bottom: 0.5rem;
+    break-inside: auto;
+}
+
+fieldset{
+    border-radius: 5px 5px 5px 5px;
+}
+
+legend{
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+label{
+    font-family: "Red Hat Text", sans-serif;
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+input{
+    font-family: "Red Hat Text", sans-serif;
+    padding: 1px;
+    margin-left: 25px;
+    width: 250px;
+}
+
+textarea{
+    font-family: "Red Hat Text", sans-serif;
+    resize: none;
+    padding: 1px;
+    margin-left: 50px;
+    width: 250px
+}
+
+#enviar{
+    border-radius: 10px;
+    background-color: var(--primary);
+    color: #fff;
+    padding: 2px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+#borrar{
+    border-radius: 10px;
+    background-color: var(--primary);
+    color: #fff;
+    padding: 2px;
+}
+/**************/
+/*Circulo*/
+/*.circulo{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: rgba(2, 112, 108, 0.386);
+    clip-path: circle(650px at right 800px);
+    width: 100%;
+    height: 100%;
+    z-index: -1000;
+}*/
