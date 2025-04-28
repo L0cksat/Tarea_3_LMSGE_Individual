@@ -12,7 +12,7 @@
     <title>Contáctate conmigo</title>
 </head>
 <body>
-    <section>
+    <section id="contactme">
         <header>
             <a href="index.html" class="logo">Stephen Nicholas Jones De Giorgi</a>
             <ul class="navbar">
@@ -30,9 +30,12 @@
                 </li>
             </ul>
         </header>
-        <div class="contHeader">
             <h1>¡Contáctame!</h1>
-        </div>  
+            <div class="contactText">
+            <p>
+                Introduce tus datos y tu mensaje abajo, y intentaré contactarte lo antes posible.
+            </p>
+            </div>
         <div class="formulario">
         <form action="mailto:stephennicholasjones9@gmail.com" method="post">
             <fieldset>
@@ -57,7 +60,7 @@
                 Por favor, introduce tu mensaje aquí.
             </textarea>
             </fieldset>
-            <div class="campo">
+            <div class="campo" id="botones">
                 <input id="enviar" type="submit" value="Enviar">
                 <input id="borrar" type="reset" value="Borrar">
             </div>

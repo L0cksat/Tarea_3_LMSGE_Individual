@@ -336,24 +336,36 @@ header .navbar li a:hover{
 
 
 /*Contenido y estilo de la página "Contacto"*/
+
+#contactme{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.contactText p{
+    font-family: "Red Hat Text", sans-serif;
+    color: #fff;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
 .formulario{
     display:block;
-    margin-top: 20%;
     margin-left: auto;
     margin-right: auto;
     width: 25%;
 }
 
-.contHeader{
-    text-align: center;
-    display: block;
-    margin-left: auto;
-    margin-left: auto;
-}
-
 form{
     margin: auto;
     border: 13px outset var(--borderBox);
+    padding: 2rem;
     border-radius: 25px 25px 25px 25px;
     background-color: var(--borderBox);
     color: #fff;
@@ -393,26 +405,49 @@ input{
 textarea{
     font-family: "Red Hat Text", sans-serif;
     resize: none;
-    padding: 1px;
+    padding: 0px;
     margin-left: 50px;
-    width: 250px
+    width: 250px;
+    height: 110px;
+    margin-top: 0.9em;
+    margin-bottom: 0.9em;
+}
+
+#botones{
+    display: flex;
+    margin-top: 20px;
+    padding-right: 40px;
 }
 
 #enviar{
     border-radius: 10px;
     background-color: var(--primary);
     color: #fff;
+    transition: 0.5s;
+    width: 150px;
+    height: 40px;
     padding: 2px;
-    margin-left: auto;
-    margin-right: auto;
-
 }
 
 #borrar{
     border-radius: 10px;
     background-color: var(--primary);
     color: #fff;
+    transition: 0.5s;
+    width: 150px;
     padding: 2px;
+}
+
+#enviar:hover{
+    background-color: #fff;
+    color: var(--primary);
+    transition: 0.5s;
+}
+
+#borrar:hover{
+    background-color: #fff;
+    color: var(--primary);
+    transition: 0.5s;
 }
 /**************/
 /*Circulo*/
