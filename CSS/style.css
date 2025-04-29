@@ -14,6 +14,8 @@
 }
 
 body{
+    margin: 0;
+    padding: 0;
     background-image: url("../img/abstract-background-with-low-poly-design.jpg");
     background-position: center;
     background-size: 100% 100%;
@@ -34,20 +36,23 @@ section{
     width: 100%;
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 100px;
+    padding: 20px;
+    min-height: 100vh;
 }
 
 header{
-    position: absolute;
+    position: fixed;
     top: 0px;
     left: 0px;
     width: 100%;
-    padding: 40px 100px;
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 1000;
 }
 header .logo{
     color: white;
@@ -56,7 +61,7 @@ header .logo{
     text-transform: uppercase;
     background: rgb(26, 48, 71);
     border-radius: 5px;
-    padding: 0 5px;
+    padding: 5px;
     font-family: "Sixtyfour Convergence", sans-serif;
     font-weight: 600;
 }
@@ -67,22 +72,23 @@ header .logo:hover{
 }
 
 header .navbar{
-    position: relative;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 header .navbar li{
     list-style: none;
-    margin-left: 30px;
+    margin-left: 10px;
 }
 
 header .navbar li a{
     text-decoration: none;
     color: #fff;
     font-weight: 600;
-    padding: 10px;
+    padding: 5px;
     transition: 0.3s;
-    font-size: 0.9em;
+    font-size: 0.8em;
     text-transform: uppercase;
 }
 
@@ -135,6 +141,12 @@ header .navbar li a:hover{
     display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
+}
+
+.contenido .tituloBox a:hover{
+    background-color: var(--primary);
+    color: #fff;
+    transition: 0.5s;
 }
 
 /*Copyright*/
@@ -213,13 +225,16 @@ header .navbar li a:hover{
 }
 
 .bookButton{
-    width: 100%;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 100px;
 }
 
-.contenido .textoSobre a{
+.bookButton a{
+    margin-right: 10px;
+    margin-left: 10px;
     font-family: "Red Hat Text", sans-serif;
     font-size: 20px;
     text-align: center;
@@ -232,27 +247,64 @@ header .navbar li a:hover{
     padding: 10px 20px;
 }
 
-.contenido .textoSobre a:hover{
+.bookButton a:hover{
     color: var(--primary);
     background-color: #fff;
     transition: 0.5s;
 }
 
-.section #copyQs{
-    position: relative;
-    bottom: -100px;
+.footerCopy{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    bottom: -130px;
+    margin-right: 150px;
 }
 
-.section #redSocQs{
+.footerRedSoc{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    bottom: -130px;
+    margin-left: 250px;
+
+}
+
+/*.copyright #copyQs{
+    position: relative;
+    bottom: -500px;
+}
+
+.redesSociales #redSocQs{
+    margin-right: 500px;
     position: relative;
     bottom: -100px;
-}
+}*/
 
 /*Contenido y estilo de la página "Proyectos Destacados"*/
 .contProyectos{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.contProyectos h1{
+    text-decoration: underline;
+}
+
+.contProyectos h2{
+    font-family: "Red Hat Text", sans-serif;
+    color: #fff;
+}
+
+.proyectoCard{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .pProyecto{
@@ -263,19 +315,102 @@ header .navbar li a:hover{
     margin-top: 10px;
 }
 
+/*Encontré un tutorial en YouTube para hacer una animación usando solamente HTML y CSS sin Javascript, porque me gusta la idea de tener algo así llamativo para los proyectos detacados
+y como todavía no tengo la facilidad de hacerlo solo, encontré este tutorial que me gustó para poder realizarlo en mi Landing page*/
 .containerCard{
     width: 350px;
     height: 500px;
+    perspective: 1000px;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.containerCard:hover > .card{
+    cursor: pointer;
+    transform: rotateY(180deg);
 }
 
 .card{
     width: 100%;
     height: 100%;
+    position: relative;
+    transition: 1500ms;
+    transform-style: preserve-3d;
 }
 
-.front, .back{
+.front, 
+.back{
     height: 100%;
     width: 100%;
+    border-radius: 2rem;
+    box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.front{
+    background-image: url("../img/Rolf.png");
+    background-size: 350px 500px;
+}
+
+.back{
+    background-color: #3a3a3a;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#card2{
+    background-image: url("../img/WorldEarisia.jpeg");
+    background-size: 350px 500px;
+}
+
+#card3{
+    background-image: url("../img/StreetFighter.png");
+    background-size: 350px 500px;
+}
+
+#card4{
+    background-image: url("../img/SNJ.png");
+    background-size: 350px 500px;
+}
+
+.cardTitle{
+    text-align: center;
+    margin-bottom: 80px;
+    text-decoration: underline;
+}
+
+.cardText{
+    font-family: "Red Hat Text", sans-serif;
+    color: #fff;
+    font-size: 1em;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.back a{
+    text-decoration: none;
+    font-family: "Red Hat Text", sans-serif;
+    color: #fff;
+    font-size: 25px;
+    border-radius: 20px;
+    background-color: var(--primary);
+    transition: 0.5s;
+    padding: 10px 20px;
+}
+
+.back a:hover{
+    color: var(--primary);
+    background-color: #fff;
+    transition: 0.5s;
 }
 
 /*Contenido y estilo de la página "CV"*/
@@ -288,6 +423,26 @@ header .navbar li a:hover{
     max-width: 3000px;
     text-align: justify;
     padding: 20px;
+}
+
+.imgContainer{
+    position: relative;
+    border: 2px outset black;
+    width: 350px;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+.cvImg{
+    height: 100%;
+    width: 100%;
+}
+
+.cvImg{
+    background-image: url("../img/Nicky.jpg");
+    background-size: 350px 400px;
 }
 
 .headerCv{
@@ -308,22 +463,6 @@ header .navbar li a:hover{
     margin-left: 15px;
     margin-top: 30px;
     margin-bottom: 10px;
-}
-
-.imgContainer{
-    
-    position: relative;
-    margin-bottom: 20px;
-    margin-right: 150px;
-    padding-right: 5px;
-}
-
-.imgContainer img{
-    display: block;
-    margin-right: 10px;
-    margin-left: auto;
-    width: 15vw;
-    height: 30vh;
 }
 
 .info ul li{
@@ -476,6 +615,291 @@ textarea{
     background-color: #fff;
     color: var(--primary);
     transition: 0.5s;
+}
+
+/*Breakpoints para el responsive*/
+
+/*Mobile*/
+/*Home*/
+@media only screen and (max-width: 767px){
+    section{
+        padding: 10px;
+    }
+
+    header{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    header .navbar{
+        width: 100%;
+        background-color: rgba(26, 48, 71, 0.9);
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    header .navbar li{
+        margin: 5px;
+    }
+    
+    .contenido{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .contenido .tituloBox{
+        right: auto;
+        max-width: 90%;
+        text-align: center;
+    }
+
+    .contenido .tituloBox h2{
+        font-size: 2em;
+    }
+
+    .contenido .tituloBox a{
+        font-size: 0.9em;
+        padding: 8px 16px;
+    }
+
+    .copyright{
+        position: static;
+        text-align: center;
+        padding: 10px;
+        margin-left: 0;
+        margin-right: 90px;
+        margin-bottom: 0;
+    }
+
+    .redesSociales{
+        position: static;
+        justify-content: center;
+        padding: 10px;
+        margin-right: 20px;
+        margin-top: 0;
+    }
+
+    .redesSociales li{
+        padding: 5px;
+    }
+
+    .redesSociales li a{
+        font-size: 2em;
+    }
+
+    /*Quien soy*/
+    .contenido .textoSobre{
+        margin-top: 200px;
+    }
+
+    .contenido .textoSobre h6{
+        margin-right: auto;
+        font-size: 1.5em;
+    }
+
+    .contenido .textoSobre p,
+    .contenido .textoSobre ul li{
+        font-size: 1em;
+    }
+
+    .contenido .textoSobre a{
+       margin-bottom: 10px;
+    }
+
+    .footerCopy{
+        margin-bottom: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .footerRedSoc{
+        margin-top: 120px;
+        margin-bottom: -60px;
+    }
+
+    /*CV*/
+    .cvContainer{
+        margin-right: auto;
+        margin-top: 200px;
+        width: 90%;
+        padding: 10px;
+    }
+
+    .imgContainer{
+        width: 300px;
+        height: 350px;
+    }
+
+    .imgContainer img{
+        width: 150px;
+        height: 200px;
+    }
+
+    .headerCv h2{
+        font-size: 1.5em;
+        margin-left: 10px;
+    }
+
+    .info h3{
+        font-size: 1.2em;
+        margin-left: 10px;
+    }
+
+    .info ul li,
+    .info p,
+    .info dl dt,
+    .info dl dd{
+        font-size: 1em;
+        margin-left: 15px;
+    }
+
+    /*Contacto*/
+    h1{
+        margin-top: 200px;
+        font-size: 2em;
+        text-align: center;
+    }
+
+    .contactText p{
+        font-size: 1em;
+    }
+
+    .formulario{
+        width: 90%;
+    }
+
+    form{
+        padding: 1rem;
+    }
+
+    label{
+        font-size: 0.9em;
+    }
+
+    input,
+    textarea{
+        width: 150px;
+        margin-left: 0;
+    }
+
+    #botones{
+        flex-direction: column;
+        align-items: center;
+        padding-right: 0;
+    }
+
+    #enviar,
+    #borrar{
+        width: 90%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    /*Proyectos Destacados*/
+    .proyectoCard{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .containerCard{
+        width: 100px;
+        height: 200px;
+        margin: 10px 0;
+    }
+
+    .front,
+    .back{
+        min-height: 200px;
+    }
+
+    .front {
+        background-size: cover;
+        background-position: center;
+    }
+
+    .cardTitle{
+        font-size: 0.5em;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .cardText,
+    .back a{
+        font-size: 0.5em;
+    }
+    .cardText{
+        margin-bottom: 10px;
+    }
+}
+/*Tablet*/
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    section{
+        padding: 50px;
+    }
+
+    .contenido .tituloBox h2{
+        font-size: 2.5em;
+    }
+
+    .formulario{
+        width: 50%;
+    }
+
+    .cvContainer{
+        width: 70%;
+    }
+
+    .proyectoCard{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .containerCard{
+        width: 45%;
+    }
+}
+
+/*Desktop*/
+@media only screen and (min-width: 992px){
+    section{
+        padding: 100px;
+    }
+
+    .contenido .tituloBox h2{
+        font-size: 3.5em;
+    }
+
+    .formulario{
+        width: 25%;
+    }
+
+    .cvContainer{
+        width: 50%;
+    }
+
+    .proyectoCard{
+        flex-wrap: nowrap;
+    }
+
+    .containerCard{
+        width: 350px;
+    }
+}
+
+/*Landscape*/
+@media only screen and (orientation: landscape) and (max-width: 767px){
+    section{
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+
+    header{
+        flex-direction: row;
+        align-items: center;
+    }
 }
 /**************/
 /*Circulo*/
