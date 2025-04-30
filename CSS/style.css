@@ -3,6 +3,7 @@
 :root{
     --primary: rgb(132, 179, 209);
     --secondary: rgb(204, 0, 0);
+    --tertiary: rgb(26, 48, 71);
     --borderBox: rgb(255, 55, 49, 0.4);
 }
 
@@ -59,7 +60,7 @@ header .logo{
     font-size: 1.5em;
     text-decoration: none;
     text-transform: uppercase;
-    background: rgb(26, 48, 71);
+    background: var(--tertiary);
     border-radius: 5px;
     padding: 5px;
     font-family: "Sixtyfour Convergence", sans-serif;
@@ -631,10 +632,14 @@ textarea{
         align-items: center;
         text-align: center;
     }
+    header .logo{
+        background-color: var(--tertiary);
+    }
 
     header .navbar{
         width: 100%;
-        background-color: rgba(26, 48, 71, 0.9);
+        background-color: var(--tertiary);
+        border-radius: 5px;
         flex-direction: row;
         justify-content: center;
         flex-wrap: wrap;
