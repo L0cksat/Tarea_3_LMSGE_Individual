@@ -100,6 +100,7 @@ header .navbar li a:hover{
     padding: 2px;
 }
 
+
 /*Estilización del contenido del Landing page.*/
 .contenido {
     position: relative;
@@ -624,9 +625,10 @@ textarea{
 /*Home*/
 @media only screen and (max-width: 576px){
     section{
-        padding: 10px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
     }
-
     header{
         flex-direction: column;
         align-items: center;
@@ -697,6 +699,7 @@ textarea{
     /*Quien soy*/
     .contenido .textoSobre{
         margin-top: 200px;
+        width: 80%;
     }
 
     .contenido .textoSobre h6{
@@ -841,11 +844,49 @@ textarea{
 /*Tablet*/
 @media only screen and (min-width: 768px) and (max-width: 991px){
     section{
-        padding: 50px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+    }
+    header{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    header .logo{
+        background-color: var(--tertiary);
+    }
+
+    header .navbar{
+        width: 100%;
+        background-color: var(--tertiary);
+        border-radius: 5px;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    header .navbar li{
+        margin: 5px;
+    }
+    .contenido{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .contenido .tituloBox{
+        right: auto;
+        max-width: 90%;
+        text-align: center;
     }
 
     .contenido .tituloBox h2{
-        font-size: 2.5em;
+        font-size: 2em;
+    }
+
+    .contenido .tituloBox a{
+        font-size: 0.9em;
+        padding: 8px 16px;
     }
 
     .formulario{
@@ -872,8 +913,24 @@ textarea{
         padding: 100px;
     }
 
+    .contenido{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .contenido .tituloBox{
+        right: auto;
+        max-width: 90%;
+        text-align: center;
+    }
+
     .contenido .tituloBox h2{
-        font-size: 3.5em;
+        font-size: 2em;
+    }
+
+    .contenido .tituloBox a{
+        font-size: 0.9em;
+        padding: 8px 16px;
     }
 
     .formulario{
@@ -890,6 +947,34 @@ textarea{
 
     .containerCard{
         width: 350px;
+    }
+}
+@media only screen and (max-width: 1000px){
+    section{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+    }
+    header{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    header .logo{
+        background-color: var(--tertiary);
+    }
+
+    header .navbar{
+        width: 100%;
+        background-color: var(--tertiary);
+        border-radius: 5px;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    header .navbar li{
+        margin: 5px;
     }
 }
 
