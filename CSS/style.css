@@ -1019,6 +1019,26 @@ textarea{
         margin: 5px;
     }
 }
+@media only screen and (min-width: 577px) and (max-width: 767px){
+    .contenido .textoSobre{
+        margin-top: 200px;
+        width: 80%;
+    }
+
+    .contenido .textoSobre h6{
+        margin-right: auto;
+        font-size: 1.5em;
+    }
+
+    .contenido .textoSobre p,
+    .contenido .textoSobre ul li{
+        font-size: 1em;
+    }
+
+    .contenido .textoSobre a{
+       margin-bottom: 10px;
+    }
+}
 
 /*Landscape*/
 @media only screen and (orientation: landscape) and (max-width: 767px){
