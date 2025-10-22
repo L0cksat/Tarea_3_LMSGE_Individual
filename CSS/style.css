@@ -1,11 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Michroma&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Sixtyfour+Convergence&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 
 :root{
     --primary: rgb(132, 179, 209);
     --secondary: rgb(204, 0, 0);
     --tertiary: rgb(26, 48, 71);
     --borderBox: rgb(255, 55, 49, 0.4);
+    --bg-color: #151f28;
+    --main-color: #00abf0;
+    --text-color: #333;
+    --second-text-color: #555;
+    --white-color:#fff;
+    --cover-color:linear-gradient(45deg, #00abf0, #006e9a);
+    --pages-color:linear-gradient(90deg, #fff, #ddd);
+    --border: 0.125rem solid #00abf0;
+    --box-shadow: 0 0 0.8rem rgba(0,0,0,0.2);
+
 }
+
 
 *{
     margin: 0px;
@@ -13,6 +26,8 @@
     box-sizing: border-box;
     font-family: "Michroma", sans-serif;
 }
+
+
 
 body{
     margin: 0;
@@ -22,6 +37,17 @@ body{
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
+}
+
+#bodyCv{
+   display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow: hidden;
+    font-family: "Nunito", sans-serif; 
 }
 
 #backHome{
@@ -153,11 +179,13 @@ header .navbar li a:hover{
 
 /*Copyright*/
 .copyright {
+    position: fixed;
     bottom: 0px;
-    left: 700px;
+    left: 0;
+    width: 100%;
+    z-index: 100;
     margin-top: 3.5rem;
-    margin-bottom: 20px;
-    padding: 0 100pX 30px;
+    padding: 0 100px 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -165,15 +193,15 @@ header .navbar li a:hover{
 
 .copyright p{
     color: #fff;
-    text-align: center;
-    margin-left: 80px;
+    margin-left: 0px;
 }
 
 /*Redes Sociales*/
 .redesSociales{
-    position: absolute;
+    position: fixed;
     right: 0px;
     bottom: 0px;
+    z-index: 100;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -416,91 +444,472 @@ y como todavía no tengo la facilidad de hacerlo solo, encontré este tutorial q
 }
 
 /*Contenido y estilo de la página "CV"*/
-.cvContainer{
-    border: 8px solid rgb(148, 148, 184);
-    background-color: #fff;
+.wrapper{
     position: relative;
-    margin-right: 95px;
-    margin-top: 50px;
-    max-width: 3000px;
-    text-align: justify;
-    padding: 20px;
+    width: 66rem;
+    height: 45rem;
+    padding: 2rem;
+    perspective: 250rem;
+    animation: show-animate 2s forwards;
 }
-
-.imgContainer{
-    position: relative;
-    border: 2px outset black;
-    width: 350px;
-    height: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 30px;
+@keyframes show-animate {
+    0%,
+    30% {
+        opacity: 0;
+        transform: rotate(-20deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
 }
-
-.cvImg{
+.cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
     height: 100%;
+    background-color: var(--cover-color);
+    background-color: #029bca;
+    box-shadow: var(--box-shadow);
+    border-top-left-radius: 0.6rem;
+    border-bottom-left-radius: 0.6rem;
+    transform-origin: right;
+}
+.cover.cover-left{
+    z-index: -1;
+}
+.cover.cover-right{
+    z-index: 100;
+    transition: transform 1s cubic-bezier(.645, .045, .355, 1);
+
+}
+.cover.cover-right.turn {
+    transform: rotateY(180deg);
+}
+
+.book, .book *{
+    font-family: "Nunito", sans-serif;
+}
+
+.book {
+    position: relative;
     width: 100%;
+    height: 100%;
+    display: flex;
+    perspective: 250rem;
 }
-
-.cvImg{
-    background-image: url("../img/Nicky.jpg");
-    background-size: 350px 400px;
+.book .book-page {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: var(--pages-color);
+    box-shadow: 0 0 .6rem rgba(0,0,0,0.1);
+    display: flex;
+    padding: 2rem;
 }
-
-.headerCv{
-    display: inline;
+.book-page.page-left{
+    box-shadow: -.6rem .6rem .6rem rgba(0,0,0,0.1);
 }
-
-.headerCv h2{
-    font-family: "Red Hat Text", sans-serif;
-    font-size: 30px;
-    margin-left: 30px;
+.profile-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-
-.info h3{
-    font-family: "Red Hat Text", sans-serif;
-    font-size: 20px;
-    text-decoration: underline;
-    text-decoration-color: black;
-    margin-left: 15px;
-    margin-top: 30px;
-    margin-bottom: 10px;
+.profile-page img{
+     max-width: 180px;
+     border-radius: 50%;
+     border: 0.25rem solid var(--main-color);
+     margin-bottom: .8rem;
 }
-
-.info ul li{
-    font-family: "Red Hat Text", sans-serif;
-    font-weight: 900;
-    font-size: 25px;
-    margin-left: 30px;
-    text-decoration: underline;
-    text-decoration-color: black;
-    list-style-type: none;
+.profile-page h1 {
+    font-size: 2.7rem;
+    line-height: 1;
+    color:#333;
+    text-align: center;
 }
-
-.info p{
-    font-family: "Red Hat Text", sans-serif;
-    font-weight: 400;
-    font-size: 25px;
-    margin-left: 30px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    text-decoration: none;
+.profile-page h3{
+    color: var(--main-color);
+    font-size: 1.5rem;
 }
-
-.info dl dt{
-    font-family: "Red Hat Text", sans-serif;
-    font-weight: 900;
-    font-size: 25px;
-    margin-left: 30px;
-    text-decoration: underline;
-    text-decoration-color: black;
+.profile-page .social-media {
+    margin: .6rem .8rem;
 }
+.profile-page .social-media a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: transparent;
+    border: var(--border);
+    border-radius: 50%;
+    font-size: 1.3rem;
+    color: var(--main-color);
+    margin: 0 .2rem;
+    transition: .5s;
 
-.info dl dd{
-    font-family: "Red Hat Text", sans-serif;
+}
+.profile-page .social-media a:hover{
+    background-color: var(--main-color);
+    color: var(--white-color);
+}
+.profile-page p {
+    text-align: justify;
+    font-size: 1.1rem;
+}
+.profile-page .btn-box{
+    margin-top: 0.4rem;
+}
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 9.5rem;
+    height: 3rem;
+    background: var(--main-color);
+    border: var(--border) ;
+    border-radius: .3rem;
+    font-size: 1rem;
+    color: var( --white-color);
     font-weight: 500;
-    font-size: 25px;
-    margin-left: 30px;
+    margin: 0 1rem;
+    transition: .5s;
+}
+.btn-box .btn:nth-child(2){
+    background: transparent;
+    color: var(--main-color);
+}
+.btn-box .btn:nth-child(1):hover{
+    background: transparent;
+    color: var(--main-color);
+}
+.btn-box .btn:nth-child(2):hover{
+    background: var(--main-color);
+    color: var(--white-color);
+}
+
+/* right page */
+.book-page.page-right{
+    position: absolute;
+    right: 0;
+    transform-style: preserve-3d;
+    transform-origin: left;
+    transition: transform 1s cubic-bezier(.645, .045, .355, 1);
+}
+.book-page.page-right.turn{
+    transform: rotateY(-180deg);
+}
+
+.book-page .page-front,
+.book-page .page-back{
+    position: absolute;
+    z-index: 50;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--pages-color);
+    padding: 1.5rem 2rem;
+}
+.book-page .page-front{
+    transform: rotateY(0deg) translateZ(1px);
+}
+.book-page .page-back{
+    transform: rotateY(180deg) translateZ(1px);
+}
+
+.title {
+    text-align: center;
+    color: #333;
+}
+.workeduc-box {
+    border-left: var(--border);
+    margin-top: 2rem;
+}
+.workeduc-box .workeduc-content {
+    position: relative;
+    padding-left: 1.6rem;
+    padding-bottom: 1.2rem;
+}
+.workeduc-box .workeduc-content::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -0.65rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    background: var(--main-color);
+}
+.workeduc-content .year {
+    color: var(--main-color);
+    font-size: 1.2rem;
+}
+.workeduc-content h3{
+    font-size: 1.4rem;
+    margin: .3rem 0;
+}
+.workeduc-content p{
+    font-size: 1.15rem;
+    text-align: justify ;
+}
+.workeduc-content .year i {
+    margin-right: .4rem;
+    font-size: 1.2rem;
+}
+.number-page{
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 600;
+}
+
+/* next button */
+.nextprev-btn{
+    position: absolute;
+    bottom: .9rem;
+    right: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    font-size: 2rem;
+    color: var(--second-text-color);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
+    z-index: 50;
+
+    background: transparent;
+    border: 0px solid var(--second-text-color);
+    border-radius: 50%;
+}
+.nextprev-btn:hover{
+    color: var(--main-color);
+    background: var(--main-color);
+    color: var(--white-color);
+    border-color: var(--white-color);
+
+}
+
+.nextprev-btn:hover i{
+    color: var(--white-color);
+}
+
+.nextprev-btn.back{
+    left: 1.5rem;
+    right: auto;
+    color: var(--second-text-color);
+    transform: translateX(-50%);
+}
+
+
+/* my services */
+.services-box{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+.services-box .services-content{
+    flex: 1 1 10rem ;
+    border: var(--border);
+    border-radius: .5rem;
+    padding: .8rem .5rem 1.1rem;
+    text-align: center;
+    transition: .3s ease;
+}
+.services-box .services-content:hover{
+    box-shadow: var(--box-shadow);
+}
+.services-content i{
+    font-size: 2.5rem;
+    color: var(--main-color);
+}
+.services-content h3{
+    font-size: 1.1rem;
+}
+.services-content p {
+    margin: .2rem 0 .8rem;
+    font-size: 13px;
+}
+.services-content .btn {
+    width: 8rem;
+    height: 2.5rem;
+}
+.services-content .btn:hover{
+    background-color: transparent;
+    color: var(--main-color);
+}
+
+
+/* skilss box */
+.skills-box{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+
+}
+.skills-box .skills-content{
+    flex: 1 1 20rem;
+}
+.skills-content h3{
+    font-size: 1.3rem;
+    line-height: 1;
+    margin-bottom: .6rem;
+}
+.skills-content .content{
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8rem;
+}
+.skills-content .content span{
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 6rem;
+    height: 4.8rem;
+    border: var(--border);
+    border-radius: .3rem;
+    font-weight: 600;
+    transition: .3 ease;
+}
+.skills-content .content span:hover{
+    box-shadow: var(--box-shadow);
+}
+.skills-content .content span i{
+    color: var(--main-color);
+    font-size: 3rem;
+}
+
+
+/* portfolio */
+.portfolio-box{
+    margin-top: 2rem;
+
+}
+.portfolio-box .img-box{
+    display: flex;
+    width: 100%;
+    height: 15rem;
+    border-radius: .5rem;
+    border: var(--border);
+    overflow: hidden;
+}
+.portfolio-box .img-box img{
+    width: 100%;
+    object-fit: cover;
+    transition: .5s ease;
+}
+.portfolio-box .img-box:hover img{
+    transform: scale(1.1);
+}
+.portfolio-box .info-box{
+    margin: 1rem 0 1.5rem;
+}
+.portfolio-box .info-box .info-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.portfolio-box .info-box .info-title h3{
+    font-size: 1.3rem;
+}
+.portfolio-box .info-box .info-title a{
+    display: flex;
+    align-items: center;
+    color: var(--main-color);
+}
+.portfolio-box .info-box .info-title a i{
+    margin-left: .3rem;
+}
+.portfolio-box .info-box p:nth-of-type(1){
+    font-weight: 600;
+}
+.portfolio-box .info-box p{
+    text-align: justify;
+}
+.portfolio-box .btn-box{
+    display: flex;
+    justify-content: center;
+}
+.portfolio-box .btn-box .btn{
+    margin: 0 1 .15rem;
+}
+
+
+/* Contact Me! */
+.contact-box{
+    margin-top: 2rem;
+    text-align: center;
+}
+.contact-box .field{
+    width: 100%;
+    background-color: transparent;
+    border: var(--border);
+    border-radius: .3rem;
+    padding: .8rem;
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.contact-box .field::placeholder{
+    color: var(--text-color);
+}
+.contact-box textarea{
+    resize: none;
+    height: 15rem;
+}
+.contact-box .btn{
+    cursor: pointer;
+}
+.contact-box .btn:hover{
+    background-color: transparent;
+    color: var(--main-color);
+}
+
+.back-profile{
+    position: absolute;
+    bottom: 1.2rem;
+    right: 2rem;
+    width: 2rem;
+    height: 2rem;
+    background-color: transparent;
+    border: var(--border);
+    border-radius: .3rem;
+    font-size: 1.1rem;
+    color: var(--main-color);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
+}
+.back-profile:hover{
+    background: var(--main-color);
+    color: var(--white-color);
+}
+.back-profile p{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) scale(.5);
+    font-size: 1rem;
+    opacity: 0;
+    transition: .5s;
+    color: var(--main-color);
+}
+.back-profile:hover p{
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+    top: -1.8rem;
 }
 
 
@@ -512,26 +921,26 @@ y como todavía no tengo la facilidad de hacerlo solo, encontré este tutorial q
     align-items: center;
 }
 
-h1{
+#contactme h1{
     color: #fff;
     margin-bottom: 10px;
 }
 
-.contactText p{
+#contactme .contactText p{
     font-family: "Red Hat Text", sans-serif;
     color: #fff;
     font-size: 25px;
     margin-bottom: 20px;
 }
 
-.formulario{
-    display:block;
+#contactme .formulario{
+    display:flex;
     margin-left: auto;
     margin-right: auto;
     width: 66%;
 }
 
-form{
+#contactme form{
     margin: auto;
     border: 13px outset var(--borderBox);
     padding: 2rem;
@@ -541,54 +950,68 @@ form{
     font-family: "Red Hat Text", sans-serif;
 }
 
-.campo{
+#contactme .campo{
     display: block;
     text-align: left;
     margin-bottom: 0.5rem;
     break-inside: auto;
 }
 
-fieldset{
+#contactme fieldset{
     border-radius: 5px 5px 5px 5px;
 }
 
-legend{
+#contactme legend{
     font-size: 25px;
     font-weight: bold;
     margin-left: 5px;
 }
 
-label{
+#contactme label{
     font-family: "Red Hat Text", sans-serif;
     font-size: 20px;
     margin-left: 5px;
 }
 
-input{
+#contactme input{
     font-family: "Red Hat Text", sans-serif;
     padding: 1px;
     margin-left: 25px;
     width: 250px;
 }
 
-textarea{
+#contactme #nombre{
+    margin-left: 13px;
+}
+
+#contactme #apellidos{
+    margin-left: 5px;
+}
+
+#contactme #email{
+    margin-left: 37px;
+}
+
+#contactme #comments{
     font-family: "Red Hat Text", sans-serif;
     resize: none;
     padding: 0px;
-    margin-left: 50px;
-    width: 250px;
+    text-indent: 5px;
+    margin-left: 20px;
+    width: 350px;
     height: 110px;
     margin-top: 0.9em;
     margin-bottom: 0.9em;
+    text-align: left;
 }
 
-#botones{
+#contactme #botones{
     display: flex;
     margin-top: 20px;
     padding-right: 40px;
 }
 
-#enviar{
+#contactme #enviar{
     border-radius: 10px;
     background-color: var(--primary);
     color: #fff;
@@ -598,7 +1021,7 @@ textarea{
     padding: 2px;
 }
 
-#borrar{
+#contactme #borrar{
     border-radius: 10px;
     background-color: var(--primary);
     color: #fff;
@@ -607,13 +1030,13 @@ textarea{
     padding: 2px;
 }
 
-#enviar:hover{
+#contactme #enviar:hover{
     background-color: #fff;
     color: var(--primary);
     transition: 0.5s;
 }
 
-#borrar:hover{
+#contactme #borrar:hover{
     background-color: #fff;
     color: var(--primary);
     transition: 0.5s;
